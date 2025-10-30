@@ -2,13 +2,11 @@
 
 A full-stack web application for managing and browsing a catalog of courses with a RESTful API backend built with FastAPI and a responsive React frontend.
 
-![Course Catalog](./preview.png)
-
 ## 🚀 Live Demo
 
-- **Frontend:** [Your Vercel/Netlify URL]
-- **Backend API:** [Your Railway URL]
-- **API Documentation:** [Your Railway URL]/docs (Swagger UI)
+- **Frontend:** https://web-application-one-phi.vercel.app/
+- **Backend API:** https://webapplication-production-2f79.up.railway.app
+- **API Documentation:** https://webapplication-production-2f79.up.railway.app/api/docs (Swagger UI)
 
 ## 📋 Table of Contents
 
@@ -21,7 +19,6 @@ A full-stack web application for managing and browsing a catalog of courses with
 - [Environment Variables](#environment-variables)
 - [Usage](#usage)
 - [Deployment](#deployment)
-- [Testing](#testing)
 
 ## ✨ Features
 
@@ -132,8 +129,7 @@ uvicorn app.main:app --reload
 ```
 
 The backend will run on `http://localhost:8000`
-- API Documentation (Swagger): `http://localhost:8000/docs`
-- Alternative Docs (ReDoc): `http://localhost:8000/redoc`
+- API Documentation (Swagger): `http://localhost:8000/api/docs`
 
 ### 3. Frontend Setup
 
@@ -273,7 +269,7 @@ Authorization: Bearer {your_jwt_token}
 ## 📁 Project Structure
 
 ```
-course-catalog/
+cousrse/
 ├── backend/
 │   ├── app/
 │   │   ├── routers/          # API route handlers
@@ -434,7 +430,7 @@ PORT=8000
 HOST=0.0.0.0
 
 # CORS Origins (comma-separated)
-ALLOWED_ORIGINS=http://localhost:3000,https://your-frontend-url.vercel.app
+ALLOWED_ORIGINS=http://localhost:3000,https://web-application-one-phi.vercel.app/
 ```
 
 **Generate a secure SECRET_KEY:**
@@ -448,7 +444,7 @@ python -c "import secrets; print(secrets.token_urlsafe(32))"
 REACT_APP_API_URL=http://localhost:8000
 
 # For production
-# REACT_APP_API_URL=https://your-railway-backend.up.railway.app
+# REACT_APP_API_URL=https://webapplication-production-2f79.up.railway.app
 ```
 
 ## 💡 Usage
@@ -575,7 +571,7 @@ npm test
 ```
 
 ### API Testing with Swagger
-Visit `http://localhost:8000/docs` to test all endpoints interactively.
+Visit `http://localhost:8000/api/docs` to test all endpoints interactively.
 
 ## 📊 Database Schema
 
@@ -644,64 +640,5 @@ CREATE TABLE users (
 **Challenge 2: JWT Token Expiration**
 - **Problem**: Users logged out unexpectedly
 - **Solution**: Implemented token refresh mechanism and proper error handling
-
-**Challenge 3: Database Connection on Railway**
-- **Problem**: Connection string format issues
-- **Solution**: Used SQLAlchemy's create_engine with proper PostgreSQL URL format
-
-## 🔄 Future Improvements
-
-- [ ] Add course ratings and reviews
-- [ ] Implement course enrollment tracking
-- [ ] Add search with Elasticsearch
-- [ ] Email verification for new users
-- [ ] Password reset functionality
-- [ ] Admin dashboard for course management
-- [ ] Course categories with icons/images
-- [ ] Advanced filtering (price range, rating, popularity)
-- [ ] Course progress tracking
-- [ ] Multi-language support
-
-## 📚 Resources
-
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [React Documentation](https://react.dev/)
-- [Railway Documentation](https://docs.railway.app/)
-- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
-- [JWT Introduction](https://jwt.io/introduction)
-- [Figma Design](https://www.figma.com/design/x694SHd7SVaJfvJUSd7o5R/HomePageDesign)
-
-## 👤 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is [MIT](LICENSE) licensed.
-
-## 🙏 Acknowledgments
-
-- **Figma Design**: Provided by assessment team
-- **FastAPI**: For the amazing framework
-- **Railway**: For easy database hosting
-- **React Community**: For excellent libraries and tools
-- **Stack Overflow**: For helping solve many challenges
-
----
-
-**Built with ❤️ for the Associate Fullstack Developer Assessment**
 
 *Last Updated: October 2025*
