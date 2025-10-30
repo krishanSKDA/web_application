@@ -128,22 +128,15 @@ export const register = async (userData) => {
 };
 
 /**
- * Login user - FIXED VERSION
+ * Login user - FIXED VERSION for JSON backend
  * @param {Object} credentials - Username and password {email, password} or {username, password}
  */
 export const login = async (credentials) => {
   try {
-    
-    const formData = new URLSearchParams();
-    
-    
-    formData.append('username', credentials.email || credentials.username);
-    formData.append('password', credentials.password);
-    
-    const response = await api.post('/api/auth/login', formData, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
+   
+    const response = await api.post('/api/auth/login', {
+      username: credentials.email || credentials.username,
+      password: credentials.password
     });
     
     if (response.data.access_token) {
