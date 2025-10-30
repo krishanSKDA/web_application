@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Base API URL - change this to your deployed backend URL
+// Base API URL
 const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 // Create axios instance
@@ -128,12 +128,24 @@ export const register = async (userData) => {
 };
 
 /**
- * Login user
- * @param {Object} credentials - Username and password
+ * Login user - FIXED VERSION
+ * @param {Object} credentials - Username and password {email, password} or {username, password}
  */
 export const login = async (credentials) => {
   try {
-    const response = await api.post('/api/auth/login', credentials);
+    
+    const formData = new URLSearchParams();
+    
+    
+    formData.append('username', credentials.email || credentials.username);
+    formData.append('password', credentials.password);
+    
+    const response = await api.post('/api/auth/login', formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    });
+    
     if (response.data.access_token) {
       localStorage.setItem('token', response.data.access_token);
     }
